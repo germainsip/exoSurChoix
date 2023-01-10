@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.tomoetek.exosurchoix.gui.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox spacing="20.0">
+      <children>
+         <VBox alignment="TOP_CENTER" spacing="40.0">
+            <children>
+               <TextField fx:id="leTexte" onKeyReleased="#updateTexte" prefHeight="26.0" prefWidth="300.0" promptText="Entrez un texte" />
+               <Label fx:id="rendue">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </Label>
+            </children>
+         </VBox>
+         <TitledPane fx:id="optionsBloc" animated="false" collapsible="false" text="Options">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0">
+                  <children>
+                     <VBox alignment="CENTER_LEFT" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <CheckBox fx:id="backCheck" mnemonicParsing="false" onAction="#chkOptions" text="Background" />
+                           <CheckBox fx:id="colorCheck" mnemonicParsing="false" onAction="#chkOptions" text="Couleur du texte" />
+                           <CheckBox fx:id="casseCheck" mnemonicParsing="false" onAction="#chkOptions" text="Casse" />
+                        </children>
+                     </VBox>
+                  </children>
+               </AnchorPane>
+           </content>
+         </TitledPane>
+      </children>
+   </HBox>
+   <HBox alignment="TOP_CENTER" spacing="40.0">
+      <children>
+         <TitledPane fx:id="backgroudBloc" animated="false" collapsible="false" text="Background">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0">
+                  <children>
+                     <VBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <RadioButton fx:id="redBack" mnemonicParsing="false" onMouseClicked="#change" text="Rouge">
+                              <toggleGroup>
+                                 <ToggleGroup fx:id="fondgrp" />
+                              </toggleGroup></RadioButton>
+                           <RadioButton fx:id="greenBack" mnemonicParsing="false" onMouseClicked="#change" text="Vert" toggleGroup="$fondgrp" />
+                           <RadioButton fx:id="blueBack" mnemonicParsing="false" onMouseClicked="#change" text="Bleu" toggleGroup="$fondgrp" />
+                        </children>
+                        <padding>
+                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                     </VBox>
+                  </children>
+               </AnchorPane>
+           </content>
+         </TitledPane>
+         <TitledPane fx:id="couleurBloc" animated="false" collapsible="false" layoutX="10.0" layoutY="10.0" text="Couleur du texte">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0">
+                  <children>
+                     <VBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <RadioButton fx:id="redTxt" mnemonicParsing="false" onMouseClicked="#change" text="Rouge">
+                              <toggleGroup>
+                                 <ToggleGroup fx:id="colGrp" />
+                              </toggleGroup></RadioButton>
+                           <RadioButton fx:id="greenTxt" mnemonicParsing="false" onMouseClicked="#change" text="Vert" toggleGroup="$colGrp" />
+                           <RadioButton fx:id="blueTxt" mnemonicParsing="false" onMouseClicked="#change" text="Bleu" toggleGroup="$colGrp" />
+                        </children>
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                     </VBox>
+                  </children>
+               </AnchorPane>
+            </content>
+         </TitledPane>
+         <TitledPane fx:id="casseBloc" animated="false" collapsible="false" layoutX="201.0" layoutY="10.0" text="Casse">
+            <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0">
+                  <children>
+                     <VBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <RadioButton fx:id="minuscule" mnemonicParsing="false" onMouseClicked="#change" text="Minuscule">
+                              <toggleGroup>
+                                 <ToggleGroup fx:id="casseGrp" />
+                              </toggleGroup></RadioButton>
+                           <RadioButton fx:id="majuscule" mnemonicParsing="false" onMouseClicked="#change" text="Majuscule" toggleGroup="$casseGrp" />
+                        </children>
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                     </VBox>
+                  </children>
+               </AnchorPane>
+            </content>
+         </TitledPane>
+      </children>
+   </HBox>
+</VBox>
